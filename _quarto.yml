@@ -1,23 +1,51 @@
 project:
   type: book
+  output-dir: _book
 
 book:
-  title: "quarto"
-  author: "Jane Doe"
-  date: "2/20/2023"
+  title: "Quarto Demonstration"
+  reader-mode: true
+
+  page-footer:
+    left: |
+      written by Eric J. Zimmerman
+    right: |
+      This book was built with <a href="https://quarto.org/">Quarto</a>.
+  cover-image: cover.png
+  favicon: cover.png
+  site-url: https://github.com/ericjameszimmerman/quarto-test/
+  repo-url: https://github.com/ericjameszimmerman/quarto-test/
+  repo-branch: main
+  repo-actions: [edit, issue]
   chapters:
     - index.qmd
     - intro.qmd
-    - summary.qmd
+
+    - part: partone-basics.qmd
+      chapters:
+        - basics.qmd
+        - tables.qmd
+        - images.qmd
+
+    - part: parttwo-visualize.qmd
+      chapters:
+        - charts.qmd
     - references.qmd
 
 bibliography: references.bib
 
 format:
   html:
-    theme: cosmo
+    theme: 
+    - cosmo
+    - qtest.scss
+
   pdf:
     documentclass: scrreprt
 
+    author-meta: "Eric J. Zimmerman"
+    include-in-header: "plausible.html"
+    callout-appearance: simple
 
+editor: visual
 
