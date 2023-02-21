@@ -45,9 +45,9 @@ status <- function(type) {
     "\n",
     ":::: status\n",
     "::: callout-", class, " \n",
-    "You are reading the work-in-progress second edition of R for Data Science. ",
+    "This is a note that appears on each chapter. ",
     "This chapter ", status, ". ",
-    "You can find the complete first edition at <https://r4ds.had.co.nz>.\n",
+    "\n",
     ":::\n",
     "::::\n"
   ))

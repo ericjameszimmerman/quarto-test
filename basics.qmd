@@ -9,26 +9,39 @@ status("complete")
 
 ## Introduction
 
-In this chapter, you'll learn tools for working with logical vectors.
-Logical vectors are the simplest type of vector because each element can only be one of three possible values: `TRUE`, `FALSE`, and `NA`.
-It's relatively rare to find logical vectors in your raw data, but you'll create and manipulate them in the course of almost every analysis.
+In this chapter, you will learn the basics.
 
-We'll begin by discussing the most common way of creating logical vectors: with numeric comparisons.
-Then you'll learn about how you can use Boolean algebra to combine different logical vectors, as well as some useful summaries.
-We'll finish off with `if_else()` and `case_when()`, two useful functions for making conditional changes powered by logical vectors.
+## Lists
 
-### Prerequisites
+### Unordered List
+* apple
+* banana
+* orange
 
-Most of the functions you'll learn about in this chapter are provided by base R, so we don't need the tidyverse, but we'll still load it so we can use `mutate()`, `filter()`, and friends to work with data frames.
-We'll also continue to draw examples from the `nycflights13::flights` dataset.
+### Ordered List
+1. first
+2. second
+3. third
+
+## Paragraphs
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla hendrerit, urna in posuere vehicula, eros nulla hendrerit tellus, vel tempus dui mi in purus. Mauris mattis tincidunt odio, non efficitur eros porta et. Praesent eu nisl dictum, blandit urna nec, tempus odio. Sed eget elit orci. Aenean elementum enim in erat porttitor tristique. Aenean sed arcu massa. Aenean sit amet turpis sed eros dictum tincidunt ac vitae ex. Sed porttitor eu eros eu gravida. Etiam a tempus libero. Morbi euismod varius dui, varius mollis ipsum ornare sit amet. Nulla sagittis ex eu mi luctus elementum. Curabitur eleifend dignissim placerat. Aenean at sagittis ante. In a felis mi. Mauris urna mi, mattis id efficitur vitae, gravida id diam.
+
+Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec sed nisl et tortor accumsan dictum. Phasellus cursus purus a scelerisque efficitur. Cras at hendrerit quam. Sed aliquet faucibus facilisis. Pellentesque eget iaculis orci. Quisque fermentum quis lorem et fermentum. Sed feugiat erat ut sapien lobortis, in tempor dui aliquam. Aenean a malesuada arcu. Pellentesque dapibus viverra efficitur.
+
+## Text options
+
+### Adding bold text
+You can add inline **bold txt**
+
+### Adding italics
+You can also add inline *italics*!
+
+### Code
+
+#### Inline
+Here is some `inline code`.
 
 ## Summary
 
-The definition of a logical vector is simple because each value must be either `TRUE`, `FALSE`, or `NA`.
-But logical vectors provide a huge amount of power.
-In this chapter, you learned how to create logical vectors with `>`, `<`, `<=`, `=>`, `==`, `!=`, and `is.na()`, how to combine them with `!`, `&`, and `|`, and how to summarize them with `any()`, `all()`, `sum()`, and `mean()`.
-You also learned the powerful `if_else()` and `case_when()` functions that allow you to return values depending on the value of a logical vector.
-
-We'll see logical vectors again and again in the following chapters.
-For example in @sec-strings you'll learn about `str_detect(x, pattern)` which returns a logical vector that's `TRUE` for the elements of `x` that match the `pattern`, and in @sec-dates-and-times you'll create logical vectors from the comparison of dates and times.
-But for now, we're going to move onto the next most important type of vector: numeric vectors.
+The basics are fairly similar to standard markdown.

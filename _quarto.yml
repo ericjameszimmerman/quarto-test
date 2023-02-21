@@ -40,12 +40,37 @@ format:
     - cosmo
     - qtest.scss
 
-  pdf:
+    
+pdf:
     documentclass: scrreprt
 
     author-meta: "Eric J. Zimmerman"
     include-in-header: "plausible.html"
     callout-appearance: simple
+
+titlepage-pdf:
+    titlepage: bg-image
+    documentclass: scrreprt
+    author-meta: "Eric J. Zimmerman"
+    callout-appearance: simple
+    classoption: ["oneside", "open=any"]
+    number-sections: true
+    coverpage: great-wave
+    coverpage-bg-image: "_extensions/nmfs-opensci/titlepage/images/TheGreatWaveoffKanagawa.jpeg"
+    coverpage-title: "quarto_titlepages"
+    coverpage-footer: "Templates for title pages and covers"
+    coverpage-theme:
+      page-html-color: "F6D5A8"
+      title-fontsize: 40
+      title-align: "right"
+      title-bottom: "10in"
+      header-style: "none"
+      author-style: "none"
+      footer-fontsize: 20
+      footer-align: "right"
+      footer-bottom: "9.5in"
+      date-style: "none"
+      bg-image-fading: "north"
 
 editor: visual
 

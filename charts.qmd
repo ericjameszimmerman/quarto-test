@@ -4,31 +4,125 @@
 #| results: "asis"
 #| echo: false
 source("_common.R")
-status("complete")
+status("restructuring")
+```
+
+```{r}
+#| label: setup
+#| message: false
+
+library(tidyverse)
+library(ggrepel)
+library(patchwork)
 ```
 
 ## Introduction
 
-In this chapter, you'll learn tools for working with logical vectors.
-Logical vectors are the simplest type of vector because each element can only be one of three possible values: `TRUE`, `FALSE`, and `NA`.
-It's relatively rare to find logical vectors in your raw data, but you'll create and manipulate them in the course of almost every analysis.
+In this chapter, you'll learn the basic supported diagrams.
 
-We'll begin by discussing the most common way of creating logical vectors: with numeric comparisons.
-Then you'll learn about how you can use Boolean algebra to combine different logical vectors, as well as some useful summaries.
-We'll finish off with `if_else()` and `case_when()`, two useful functions for making conditional changes powered by logical vectors.
+### Basic GraphViz diagram
 
-### Prerequisites
+```{dot}
+digraph finite_state_machine {
+	rankdir=LR;
+	size="8,5"
+	node [shape = doublecircle]; LR_0 LR_3 LR_4 LR_8;
+	node [shape = circle];
+	LR_0 -> LR_2 [ label = "SS(B)" ];
+	LR_0 -> LR_1 [ label = "SS(S)" ];
+	LR_1 -> LR_3 [ label = "S($end)" ];
+	LR_2 -> LR_6 [ label = "SS(b)" ];
+	LR_2 -> LR_5 [ label = "SS(a)" ];
+	LR_2 -> LR_4 [ label = "S(A)" ];
+	LR_5 -> LR_7 [ label = "S(b)" ];
+	LR_5 -> LR_5 [ label = "S(a)" ];
+	LR_6 -> LR_6 [ label = "S(b)" ];
+	LR_6 -> LR_5 [ label = "S(a)" ];
+	LR_7 -> LR_8 [ label = "S(b)" ];
+	LR_7 -> LR_5 [ label = "S(a)" ];
+	LR_8 -> LR_6 [ label = "S(b)" ];
+	LR_8 -> LR_5 [ label = "S(a)" ];
+}
+```
 
-Most of the functions you'll learn about in this chapter are provided by base R, so we don't need the tidyverse, but we'll still load it so we can use `mutate()`, `filter()`, and friends to work with data frames.
-We'll also continue to draw examples from the `nycflights13::flights` dataset.
+### Basic Plant UML diagram
+
+There does not appear to be a built-in plantuml support like there is with mermaid, but there might be a few ways, including extension methods
+
+{{< ezplantuml >}}
+
+```
+
+@startuml
+Alice -> Bob: Authentication Request Bob --> Alice: Authentication Response
+Alice -> Bob: Another authentication Request Alice <-- Bob: another Response
+@enduml
+```
+
+# Basic Mermaid Diagram
+
+```{mermaid}
+sequenceDiagram
+  participant Alice
+  participant Bob
+  Alice->>John: Hello John, how are you?
+  loop Healthcheck
+    John->>John: Fight against hypochondria
+  end
+  Note right of John: Rational thoughts <br/>prevail!
+  John-->>Alice: Great!
+  John->>Bob: How about you?
+  Bob-->>John: Jolly good!
+```
+
+## ggplot
+
+```{r}
+#| echo: false
+#| fig-asp: 1
+#| out-width: "50%"
+#| fig-width: 3
+#| fig-alt: >
+#|   Scatterplot with math text on the x and y axis labels. X-axis label 
+#|   says sum of x_i  squared, for i from 1 to n. Y-axis label says alpha + 
+#|   beta + delta over theta.
+
+df <- tibble(
+  x = 1:10,
+  y = x ^ 2
+)
+
+ggplot(df, aes(x, y)) +
+  geom_point() +
+  labs(
+    x = quote(sum(x[i] ^ 2, i == 1, n)),
+    y = quote(alpha + beta + frac(delta, theta))
+  )
+```
+
+
+## Basic line chart with ggplot2 and geom line
+
+```{r}
+#| echo: false
+#| fig-asp: 1
+#| out-width: "50%"
+#| fig.cap: "Basic line chart with ggplot2 and geom line"
+#| fig-width: 3
+#| fig-alt: >
+#|   Basic line chart with ggplot2 and geom line
+library(ggplot2)
+
+xValue <- 1:10
+yValue <- cumsum(rnorm(10))
+data <- data.frame(xValue,yValue)
+
+ggplot(data, aes(x=xValue, y=yValue)) + geom_line()
+```
+
 
 ## Summary
 
-The definition of a logical vector is simple because each value must be either `TRUE`, `FALSE`, or `NA`.
-But logical vectors provide a huge amount of power.
-In this chapter, you learned how to create logical vectors with `>`, `<`, `<=`, `=>`, `==`, `!=`, and `is.na()`, how to combine them with `!`, `&`, and `|`, and how to summarize them with `any()`, `all()`, `sum()`, and `mean()`.
-You also learned the powerful `if_else()` and `case_when()` functions that allow you to return values depending on the value of a logical vector.
-
-We'll see logical vectors again and again in the following chapters.
-For example in @sec-strings you'll learn about `str_detect(x, pattern)` which returns a logical vector that's `TRUE` for the elements of `x` that match the `pattern`, and in @sec-dates-and-times you'll create logical vectors from the comparison of dates and times.
-But for now, we're going to move onto the next most important type of vector: numeric vectors.
+- Overall, there are some good built-in features here
+- Missing built-in plantuml support is a negative, but we have options.
+- matplotlib also had some dependency issues, but ggplot works.
